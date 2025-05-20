@@ -1,56 +1,56 @@
-# 📦 Shortest Path Python Package – shortestpath2200674010
 
-Bu proje, **GMT211 Veri Yapıları ve Algoritmalar** dersi kapsamında geliştirilmiş olup, Python dilinde yazılmış bir **Dijkstra algoritması uygulamasını** içerir.  
-Kodlar bir Python paketi haline getirilmiş, `pytest` ile test edilmiş, `Sphinx` ile dökümantasyonu oluşturulmuş ve **TestPyPI** ortamına başarıyla yüklenmiştir.  
-Ek olarak, **GitHub Actions** entegrasyonu sağlanarak Continuous Integration (CI) otomasyonu gerçekleştirilmiştir.
 
----
+### 📄 `README.md`
 
-## 🧭 Proje Amacı
+````markdown
+# 📦 shortestpath_package
 
-Bu proje ile amaçlanan:
-
-- En kısa yol probleminin çözümünde Dijkstra algoritmasının Python ile uygulanması,
-- Bu algoritmanın bir **Python paketi** haline getirilmesi,
-- Otomatik test mekanizmalarının kurulması (pytest & GitHub Actions),
-- Paketleme, dökümantasyon ve yükleme süreçlerinin uçtan uca gerçekleştirilmesidir.
+> 📍 A Python package for calculating the shortest paths on a directed, weighted graph using Dijkstra’s Algorithm.
 
 ---
 
-## 📁 Proje Klasör Yapısı
+## 🔍 Purpose
 
-```plaintext
-shortestpath_package/
-├── shortestpath/                  # Ana modül (algoritma burada)
-│   ├── __init__.py
-│   └── shortestpath.py
-│
-├── tests/                         # pytest test dosyaları
-│   └── test_shortestpath.py
-│
-├── docs/                          # Sphinx dökümantasyonu
-│   └── build/html/index.html
-│
-├── .github/workflows/            # GitHub Actions dosyası
-│   └── python-test.yml
-│
-├── setup.py                      # Paket yapılandırma dosyası
-├── requirements.txt              # Gerekli kütüphaneler
-├── README.md                     # Bu dosya
-└── dist/                         # Oluşturulan .tar.gz ve .whl dosyaları
+This Python package was developed to **calculate the shortest paths from a source node to all other nodes** on a directed and weighted graph using **Dijkstra’s algorithm**.
 
-🚀 Paket Kurulumu (TestPyPI Üzerinden)
-bash
-Kopyala
-Düzenle
+The project was implemented as part of the **GMT211 - Data Structures and Algorithms** course at Hacettepe University. It includes modern software engineering components such as packaging, unit testing, documentation, and CI/CD.
+
+---
+
+## 🧩 Features
+
+- ✅ Accurate and efficient path calculation with Dijkstra's Algorithm  
+- ✅ Customizable graph structure using Python dictionaries  
+- ✅ Fully tested with `pytest`  
+- ✅ Automated testing via GitHub Actions  
+- ✅ HTML documentation generated using `Sphinx`  
+- ✅ Publishable via TestPyPI  
+
+---
+
+## ⚙️ Installation
+
+### From TestPyPI
+
+```bash
 pip install -i https://test.pypi.org/simple/ shortestpath2200674051
-📦 Paket sayfası:
-🔗 https://test.pypi.org/project/shortestpath2200674051/
+![image](https://github.com/user-attachments/assets/5a70a710-c560-4cf2-b95c-8b3a6ebd0aff)
 
-🧠 Kullanım Örneği
-python
-Kopyala
-Düzenle
+````
+
+### Manual Installation
+
+```bash
+git clone https://github.com/beyzaoren/shortestpath_package.git
+cd shortestpath_package
+pip install .
+```
+
+---
+
+## 💡 Usage Example
+
+```python
 from shortestpath.shortestpath import dijkstra
 
 graph = {
@@ -61,66 +61,101 @@ graph = {
 }
 
 result = dijkstra(graph, 'A')
-print(result)  # {'A': 0, 'B': 1, 'C': 3, 'D': 4}
-🧪 Otomatik Testler
-Testler pytest ile yazılmıştır. tests/test_shortestpath.py içerisinde basit bir yönlü grafikte beklenen sonuçlar kontrol edilmiştir.
+print(result)
+# Output: {'A': 0, 'B': 1, 'C': 3, 'D': 4}
+```
 
-Testleri çalıştırmak için terminalde:
+---
 
-bash
-Kopyala
-Düzenle
+## 🧪 Testing
+
+All tests are written using `pytest`.
+
+```bash
 pytest
-📚 Dökümantasyon (Sphinx)
-Sphinx ile oluşturulan dökümantasyon docs/build/html/index.html konumunda yer alır. Tarayıcıdan açılarak görsel olarak incelenebilir.
+```
 
-Dokümantasyon örneği:
+Continuous integration is enabled via GitHub Actions. You can find the workflow file at `.github/workflows/python-test.yml`.
 
-Fonksiyon açıklamaları
+---
 
-Parametre tipleri
+## 📚 Documentation
 
-Geri dönen değerler
+The documentation is generated using `Sphinx`.
 
-⚙️ GitHub Actions Entegrasyonu
-.github/workflows/python-test.yml dosyası sayesinde her push sonrası GitHub otomatik olarak:
+To view in your browser:
 
-pip install -r requirements.txt komutu ile bağımlılıkları yükler
+```bash
+cd docs
+make html
+# Then open build/html/index.html in your browser
+![image](https://github.com/user-attachments/assets/59c14461-e6d0-4c8e-8ab0-714f1fe93cb7)
 
-pytest ile testleri çalıştırır
+```
 
-Bu sayede sürekli entegrasyon (CI) sağlanmış olur.
-✅ Workflow sonuçları “Actions” sekmesinden takip edilebilir.
+> Author: **Beyza Ören**
+> Email: [beyzaoren58@hotmail.com](mailto:beyzaoren58@hotmail.com)
 
-🧾 Kullanılan Teknolojiler
-Python 3.10
+---
 
-heapq (öncelik kuyruğu kullanımı)
+## 📁 Project Structure
 
-Pytest
+```shell
+shortestpath_package/
+├── shortestpath/              # Core algorithm module
+│   └── shortestpath.py
+├── tests/                     # Unit tests
+│   └── test_shortestpath.py
+├── docs/                      # Sphinx documentation
+│   ├── source/
+│   └── build/
+├── dist/                      # Compiled distribution files
+├── .github/workflows/         # GitHub Actions CI workflow
+│   └── python-test.yml
+├── README.md
+├── requirements.txt
+└── setup.py
+```
 
-Sphinx
+---
 
-GitHub Actions
+## 🧠 Learning Outcomes
 
-setuptools, twine
+* Modular software development in Python
+* Making algorithms testable and reusable
+* Publishing to PyPI/TestPyPI
+* Using GitHub Actions for CI
+* Generating automatic documentation with Sphinx
 
-TestPyPI
+---
 
-👩‍💻 Geliştirici Bilgisi
-Adı: Beyza Ören
+## 🪪 License
 
-Öğrenci No: 2200674051
+Licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-E-posta: beyzaoren58@hotmail.com
+---
 
-Kapsam: GMT211 – Python Paket Geliştirme Ödevi
+## 🏁 Contributing
 
-📌 Notlar
-Bu proje yalnızca eğitim amacıyla TestPyPI’ye yüklenmiştir.
+Contributions are welcome!
 
-Gerçek ortam için yükleme yapılmamıştır.
+1. Fork this repo
+2. Create a new branch
+3. Commit your changes
+4. Open a Pull Request ✨
 
-Geliştirme sırasında tüm adımlar (build, twine upload, sphinx, pytest, CI) başarıyla test edilmiştir.
+---
 
+## 🌐 Links
 
+* 📦 TestPyPI: [shortestpath2200674051 on TestPyPI](https://test.pypi.org/project/shortestpath2200674051)
+* 💻 GitHub: [github.com/beyzaoren/shortestpath\_package](https://github.com/beyzaoren/shortestpath_package)
+
+---
+
+```
+
+---
+
+Would you like me to generate this as a downloadable `.md` file or paste it into your project directory?
+```
