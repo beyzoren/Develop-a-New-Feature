@@ -1,6 +1,6 @@
 
 
-### 📄 `README.md`
+ 📄 `README.md`
 
 ````markdown
 # 📦 shortestpath_package
@@ -9,7 +9,7 @@
 
 ---
 
-## 🔍 Purpose
+ 🔍 Purpose
 
 This Python package was developed to **calculate the shortest paths from a source node to all other nodes** on a directed and weighted graph using **Dijkstra’s algorithm**.
 
@@ -17,7 +17,7 @@ The project was implemented as part of the **GMT211 - Data Structures and Algori
 
 ---
 
-## 🧩 Features
+ 🧩 Features
 
 - ✅ Accurate and efficient path calculation with Dijkstra's Algorithm  
 - ✅ Customizable graph structure using Python dictionaries  
@@ -38,7 +38,7 @@ pip install -i https://test.pypi.org/simple/ shortestpath2200674051
 
 ````
 
-### Manual Installation
+Manual Installation
 
 ```bash
 git clone https://github.com/beyzaoren/shortestpath_package.git
@@ -67,7 +67,7 @@ print(result)
 
 ---
 
-## 🧪 Testing
+ 🧪 Testing
 
 All tests are written using `pytest`.
 
@@ -79,7 +79,7 @@ Continuous integration is enabled via GitHub Actions. You can find the workflow 
 
 ---
 
-## 📚 Documentation
+ 📚 Documentation
 
 The documentation is generated using `Sphinx`.
 
@@ -98,7 +98,7 @@ make html
 
 ---
 
-## 📁 Project Structure
+ 📁 Project Structure
 
 ```shell
 shortestpath_package/
@@ -119,7 +119,7 @@ shortestpath_package/
 
 ---
 
-## 🧠 Learning Outcomes
+ 🧠 Learning Outcomes
 
 * Modular software development in Python
 * Making algorithms testable and reusable
@@ -129,13 +129,13 @@ shortestpath_package/
 
 ---
 
-## 🪪 License
+ 🪪 License
 
 Licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 ---
 
-## 🏁 Contributing
+🏁 Contributing
 
 Contributions are welcome!
 
@@ -146,7 +146,7 @@ Contributions are welcome!
 
 ---
 
-## 🌐 Links
+ 🌐 Links
 
 * 📦 TestPyPI: [shortestpath2200674051 on TestPyPI](https://test.pypi.org/project/shortestpath2200674051)
 * 💻 GitHub: [github.com/beyzaoren/shortestpath\_package](https://github.com/beyzaoren/shortestpath_package)
