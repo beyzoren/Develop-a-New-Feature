@@ -1,161 +1,128 @@
 
 
- 📄 `README.md`
-
 ````markdown
-# 📦 shortestpath_package
+# Shortestpath Package
 
-> 📍 A Python package for calculating the shortest paths on a directed, weighted graph using Dijkstra’s Algorithm.
-
----
-
- 🔍 Purpose
-
-This Python package was developed to **calculate the shortest paths from a source node to all other nodes** on a directed and weighted graph using **Dijkstra’s algorithm**.
-
-The project was implemented as part of the **GMT211 - Data Structures and Algorithms** course at Hacettepe University. It includes modern software engineering components such as packaging, unit testing, documentation, and CI/CD.
+Welcome to the **Shortestpath Package**!  
+This Python package implements Dijkstra's algorithm to calculate the shortest path in a weighted graph. It is developed as part of a GMT211 assignment and extended with documentation, testing, and packaging features.
 
 ---
 
- 🧩 Features
+## 🚀 Develop a New Feature
 
-- ✅ Accurate and efficient path calculation with Dijkstra's Algorithm  
-- ✅ Customizable graph structure using Python dictionaries  
-- ✅ Fully tested with `pytest`  
-- ✅ Automated testing via GitHub Actions  
-- ✅ HTML documentation generated using `Sphinx`  
-- ✅ Publishable via TestPyPI  
+### ✨ Feature: `dijkstra()` Function
 
----
-
-## ⚙️ Installation
-
-### From TestPyPI
-
-```bash
-pip install -i https://test.pypi.org/simple/ shortestpath2200674051
-![image](https://github.com/user-attachments/assets/5a70a710-c560-4cf2-b95c-8b3a6ebd0aff)
-
-````
-
-Manual Installation
-
-```bash
-git clone https://github.com/beyzaoren/shortestpath_package.git
-cd shortestpath_package
-pip install .
-```
-
----
-
-## 💡 Usage Example
+This project introduces a `dijkstra()` function to compute the shortest distances from a given start node to all other nodes in a graph.
 
 ```python
-from shortestpath.shortestpath import dijkstra
+def dijkstra(graph, start):
+    shortest_distances = {node: float('inf') for node in graph}
+    shortest_distances[start] = 0
+    visited = set()
 
-graph = {
-    'A': [('B', 1), ('C', 4)],
-    'B': [('C', 2), ('D', 5)],
-    'C': [('D', 1)],
-    'D': []
-}
+    while len(visited) < len(graph):
+        unvisited_nodes = {node: shortest_distances[node] for node in graph if node not in visited}
+        current_node = min(unvisited_nodes, key=unvisited_nodes.get)
+        visited.add(current_node)
 
-result = dijkstra(graph, 'A')
-print(result)
-# Output: {'A': 0, 'B': 1, 'C': 3, 'D': 4}
-```
+        for neighbor, weight in graph[current_node]:
+            new_distance = shortest_distances[current_node] + weight
+            if new_distance < shortest_distances[neighbor]:
+                shortest_distances[neighbor] = new_distance
+
+    return shortest_distances
+````
+
+**Purpose:** This function finds the shortest path from the start node to all others. It's useful in routing systems, logistics, and optimization problems.
 
 ---
 
- 🧪 Testing
+## 🧪 Testing with GitHub Actions
 
-All tests are written using `pytest`.
+All test cases are written using `pytest`.
+A GitHub Actions workflow (`python-test.yml`) runs the tests on every push to ensure stability.
 
 ```bash
 pytest
 ```
 
-Continuous integration is enabled via GitHub Actions. You can find the workflow file at `.github/workflows/python-test.yml`.
+Sample test:
+
+```python
+def test_dijkstra_simple_graph():
+    graph = {
+        'A': [('B', 1), ('C', 4)],
+        'B': [('C', 2), ('D', 5)],
+        'C': [('D', 1)],
+        'D': []
+    }
+    expected = {'A': 0, 'B': 1, 'C': 3, 'D': 4}
+    result = dijkstra(graph, 'A')
+    assert result == expected
+```
+
+GitHub Actions status: ✅ Success
+
+> [See GitHub Actions tab](https://github.com/beyzoren/shortestpath_package/actions)
 
 ---
 
- 📚 Documentation
+## 📚 Documentation with Sphinx
 
-The documentation is generated using `Sphinx`.
+Documentation has been generated with **Sphinx**.
 
-To view in your browser:
+📷 Sample screenshot:
+
+![Documentation Screenshot](docs/sphinx_screenshot.png)
+
+🔗 **HTML Documentation Index:**
+[Click to open index.html](docs/build/html/index.html)
+
+---
+
+## 🔍 Bonus: Logging Feature
+
+Although optional, a basic logging mechanism is added to track algorithm steps:
+
+```python
+import logging
+logging.basicConfig(level=logging.INFO)
+logging.info(f"Visiting {current_node} with current shortest distance {shortest_distances[current_node]}")
+```
+
+**Benefits:**
+Helps understand the internal steps of Dijkstra's execution — great for debugging or educational purposes.
+
+---
+
+## 🤖 AI Usage Disclosure
+
+This project received limited support from **ChatGPT** to:
+
+* Write boilerplate code
+* Generate documentation sections
+* Fix syntax issues
+* Translate instructions
+
+All logic, design, testing, and content were created, reviewed, and validated by the developer manually.
+
+---
+
+## 📦 Installation (TestPyPI)
 
 ```bash
-cd docs
-make html
-# Then open build/html/index.html in your browser
-![image](https://github.com/user-attachments/assets/59c14461-e6d0-4c8e-8ab0-714f1fe93cb7)
-
-```
-
-> Author: **Beyza Ören**
-> Email: [beyzaoren58@hotmail.com](mailto:beyzaoren58@hotmail.com)
-
----
-
- 📁 Project Structure
-
-```shell
-shortestpath_package/
-├── shortestpath/              # Core algorithm module
-│   └── shortestpath.py
-├── tests/                     # Unit tests
-│   └── test_shortestpath.py
-├── docs/                      # Sphinx documentation
-│   ├── source/
-│   └── build/
-├── dist/                      # Compiled distribution files
-├── .github/workflows/         # GitHub Actions CI workflow
-│   └── python-test.yml
-├── README.md
-├── requirements.txt
-└── setup.py
+pip install --index-url https://test.pypi.org/simple/ shortestpath2200674051
 ```
 
 ---
 
- 🧠 Learning Outcomes
+## 👩‍💻 Author
 
-* Modular software development in Python
-* Making algorithms testable and reusable
-* Publishing to PyPI/TestPyPI
-* Using GitHub Actions for CI
-* Generating automatic documentation with Sphinx
+* **Name:** Beyza Ören
+* **School ID:** 2200674051
+* **Email:** [beyzaren58@hotmail.com](mailto:beyzaren58@hotmail.com)
 
 ---
 
- 🪪 License
+> Project for GMT211 – Data Structures and Algorithms
 
-Licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
----
-
-🏁 Contributing
-
-Contributions are welcome!
-
-1. Fork this repo
-2. Create a new branch
-3. Commit your changes
-4. Open a Pull Request ✨
-
----
-
- 🌐 Links
-
-* 📦 TestPyPI: [shortestpath2200674051 on TestPyPI](https://test.pypi.org/project/shortestpath2200674051)
-* 💻 GitHub: [github.com/beyzaoren/shortestpath\_package](https://github.com/beyzaoren/shortestpath_package)
-
----
-
-```
-
----
-
-Would you like me to generate this as a downloadable `.md` file or paste it into your project directory?
-```
