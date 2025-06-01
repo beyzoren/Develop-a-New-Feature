@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='shortestpath2200674051',
+    name='shortestpath2200674010',
     version='0.1.0',
     author='Beyza Ören',
     author_email='beyzaoren58@hotmail.com',
